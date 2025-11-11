@@ -1,10 +1,249 @@
 ﻿@page
 @model IndexModel
-@{
-    ViewData["Title"] = "Home page";
-}
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<style>
+    :root {
+        --luxury-cream: #F5F3EE;
+        --luxury-beige: #E8E4DC;
+        --luxury-taupe: #C9BDB1;
+        --luxury-charcoal: #2C2C2C;
+        --luxury-gold: #B8956A;
+        --luxury-white: #FFFFFF;
+    }
+
+    body {
+        background-color: var(--luxury-cream);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: var(--luxury-charcoal);
+    }
+
+    .hero-section {
+        background: linear-gradient(135deg, var(--luxury-beige) 0%, var(--luxury-cream) 100%);
+        padding: 80px 0;
+        position: relative;
+        overflow: hidden;
+    }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(184, 149, 106, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+    .hero-content {
+        position: relative;
+        z-index: 2;
+    }
+
+    .brand-title {
+        font-size: 3.5rem;
+        font-weight: 300;
+        letter-spacing: 3px;
+        color: var(--luxury-charcoal);
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+    }
+
+    .brand-subtitle {
+        font-size: 1.1rem;
+        color: var(--luxury-gold);
+        letter-spacing: 2px;
+        font-weight: 500;
+        margin-bottom: 2rem;
+    }
+
+    .description-text {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: #5A5A5A;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+
+    .feature-card {
+        background: var(--luxury-white);
+        border-radius: 2px;
+        padding: 40px 30px;
+        margin: 20px 0;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border-left: 3px solid var(--luxury-gold);
+    }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        }
+
+    .feature-icon {
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(135deg, var(--luxury-gold) 0%, var(--luxury-taupe) 100%);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+        font-size: 24px;
+        color: white;
+    }
+
+    .feature-title {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: var(--luxury-charcoal);
+        margin-bottom: 10px;
+    }
+
+    .feature-description {
+        color: #6B6B6B;
+        line-height: 1.6;
+    }
+
+    .cta-button {
+        background: linear-gradient(135deg, var(--luxury-gold) 0%, var(--luxury-taupe) 100%);
+        color: white;
+        border: none;
+        padding: 15px 50px;
+        font-size: 1rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        border-radius: 2px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(184, 149, 106, 0.3);
+    }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(184, 149, 106, 0.4);
+            color: white;
+        }
+
+    .divider {
+        width: 80px;
+        height: 2px;
+        background: var(--luxury-gold);
+        margin: 30px auto;
+    }
+
+    .banner-image {
+        border-radius: 2px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+        max-height: 400px;
+        object-fit: cover;
+        width: 100%;
+    }
+
+    .stats-section {
+        background: var(--luxury-white);
+        padding: 60px 0;
+        margin-top: 60px;
+    }
+
+    .stat-item {
+        text-align: center;
+        padding: 20px;
+    }
+
+    .stat-number {
+        font-size: 3rem;
+        font-weight: 300;
+        color: var(--luxury-gold);
+    }
+
+    .stat-label {
+        font-size: 0.95rem;
+        color: #6B6B6B;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
+</style>
+
+<div class="hero-section">
+    <div class="container">
+        <div class="hero-content text-center">
+            <img src="https://pictureserver.net/pic_storage/pic/73/bc/english_src_banner_picid_9374_image.png?ver=2"
+                 alt="Scandinavian Categories"
+                 class="banner-image mb-5" />
+
+            <h1 class="brand-title">Nordic Living</h1>
+            <p class="brand-subtitle">Scandinavian Category Management</p>
+
+            <div class="divider"></div>
+
+            <p class="description-text">
+                Experience the elegance of <strong>Scandinavian design</strong> combined with powerful
+                <strong>ASP.NET Core technology</strong>. Our category management system brings the
+                simplicity and sophistication of Nordic aesthetics to your e-commerce platform—just
+                like the world's leading furniture retailers.
+            </p>
+
+            <button class="cta-button mt-4">Explore Categories</button>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="feature-card">
+                <div class="feature-icon">✨</div>
+                <h3 class="feature-title">Create</h3>
+                <p class="feature-description">
+                    Effortlessly add new product categories with our intuitive interface.
+                    Built for speed and simplicity.
+                </p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="feature-card">
+                <div class="feature-icon">📋</div>
+                <h3 class="feature-title">Manage</h3>
+                <p class="feature-description">
+                    View and organize all your categories in one elegant dashboard.
+                    Scandinavian design meets functionality.
+                </p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3 class="feature-title">Update</h3>
+                <p class="feature-description">
+                    Modify categories in real-time with seamless CRUD operations.
+                    Professional-grade performance.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="stats-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Responsive Design</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="stat-item">
+                    <div class="stat-number">∞</div>
+                    <div class="stat-label">Categories</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="stat-item">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Availability</div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
